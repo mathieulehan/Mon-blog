@@ -1,4 +1,8 @@
 <!doctype html>
+<?php 
+	$bdd = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'ts1', 'ts1');
+    $billets = $bdd->query('select BIL_ID as id, BIL_DATE as date,'. ' BIL_TITRE as titre, BIL_CONTENU as contenu from T_BILLET'. ' order by BIL_ID desc');
+?>
 <html lang="fr">
     <head>
         <meta charset="UTF-8" />
@@ -13,11 +17,6 @@
             </header>
             <div id="contenu">
                 <?php
-                $bdd = new PDO('mysql:host=localhost;dbname=blog;charset=utf8',
-                        'ts1', 'ts1');
-                $billets = $bdd->query('select BIL_ID as id, BIL_DATE as date,'
-                        . ' BIL_TITRE as titre, BIL_CONTENU as contenu from T_BILLET'
-                        . ' order by BIL_ID desc');
                 foreach ($billets as $billet):
                     ?>
                     <article>
