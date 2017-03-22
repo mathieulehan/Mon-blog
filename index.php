@@ -7,7 +7,8 @@ try {
   require 'vueAccueil.php';
 }
 catch (Exception $e) {
-  echo '<html><body>Erreur ! ' . $e->getMessage() . '</body></html>';
+  $msgErreur = $e->getMessage();
+  require 'vueErreur.php';
 }
 
 require 'vueAccueil.php';
